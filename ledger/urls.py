@@ -1,0 +1,4 @@
+from django.contrib.auth.views import LogoutView
+from django.urls import path
+from . import views
+urlpatterns = [path('', views.home, name='home'), path('sign-in/', views.SignInView.as_view(), name='login'), path('sign-out/', LogoutView.as_view(), name='logout'), path('register/', views.register, name='register'), path('projects/<int:pk>/', views.project, name='project'), path('projects/<int:pk>/edit/', views.edit_project, name='project_edit'), path('subprojects/<int:pk>/edit/', views.edit_subproject, name='subproject_edit'), path('projects/<int:pk>/share/', views.share, name='share'), path('projects/<int:pk>/delete/', views.delete_project, name='project_delete'), path('projects/<int:pk>/restore/', views.restore_project, name='project_restore'), path('p/<str:token>/', views.client, name='client')]
